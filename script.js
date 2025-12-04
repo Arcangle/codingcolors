@@ -1,7 +1,7 @@
 console.log("inizio esecuzione");
 let d = new Date();
 console.log(d);
-
+document.getElementById("saluto").innerHTML=d+"e un bel giorno";
 function elabora(){
     let numero = document.getElementById("inNumber").value;
     alert(numero);
