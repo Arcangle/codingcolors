@@ -4,4 +4,13 @@ h1 {
    color: blue;
    text-align: center;
 }
-
+   body{
+       background-color: rgba(0, 191, 255, 0.58);
+       color: rgb(250, 249, 249);
+       padding: 20px;
+   }
+   h1   {color: #0707b5;}
+   
+   #error{
+       color: rgb(255, 0, 0);
+   }
