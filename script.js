@@ -1,40 +1,44 @@
 console.log("inizio esecuzione");
 let d = new Date();
 console.log(d);
+document.getElementById("saluto").innerHTML=d;
 
-let day = d.getDate();        
-let month = d.getMonth() + 1;
-let year = d.getFullYear();  
-
-console.log(day + "/" + month + "/" + year);
-
-document.getElementById("saluto").innerHTML=d.getDay();
 let colori = [];
 
-
 function elabora(){
-    let numero = document.getElementById("inNumber").value;
-    alert(numero);
-}
-    if (num >=0 && numero <= 255) {
-        colori.push(numero);
-        
-      document.getElementById("outText").innerHTML ="Hai inserito il numero " + numero;
-        "Hai inserito il numero" + numero;
-        
-    document.getElementById("outText").innerHTML +="<br> I colori inseriti sono: " + colori;
+  let numero = document.getElementById("inNumber").value;
+  let testo = document.getElementById("inText").value;
+
+  // pulisce eventuali errori precedenti
+  document.getElementById("error").innerHTML = "";
+
+  //verifica se numero inserito è valido
+  if (numero >=0 && numero <= 255) {
+    //inserisce numero nell'array
+    colori.push(numero);
+    //visualizza il numero dentro il div output
+    document.getElementById("outText").innerHTML ="Hai inserito il numero " + numero;
+    //visualizza numeri inseriti del colore scelto
+    document.getElementById("outText").innerHTML += "<br> I colori inseriti sono: " + colori;
     console.log(colori);
-    
-    if (colori.lengt == 3){
-        document.getElementById("outText").style.color=`rgb(${colori[0]},${colori[1]},${colori[2]}})`;
-        
+    if (colori.length==3){
+      document.getElementById("testoColorato").innerHTML = testo;
+      document.getElementById("testoColorato").style.color=`rgb(${colori[0]},${colori[1]},${colori[2]})`;
     }
+  }
+  else {
+    //messaggio di errore dentro il div error
+    document.getElementById("error").innerHTML ="Il numero non è valido. Inserirne uno tra 0 e 255";
+  }
 }
-else {
-  document.getElementById("error").innerHTML ="Il numero non e";
-  document.getElementById("outText").innerHTML = numero
-}
-    
+   
 function reset() {
-  document.getElementById("inNumber").value = ""; 
+    colori = [];
+    document.getElementById("inNumber").value = "";
+    document.getElementById("inText").value = "";
+    document.getElementById("outText").innerHTML = "";
+    document.getElementById("outText").style.color = "";
+    document.getElementById("testoColorato").innerHTML = "";
+    document.getElementById("testoColorato").style.color = "";
+    document.getElementById("error").innerHTML = "";
 }
