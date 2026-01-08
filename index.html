@@ -1,26 +1,98 @@
+Conversazione aperta. 1 messaggio da leggere.
+
+Vai ai contenuti
+Utilizzo di Gmail con gli screen reader
+1 di 2259
+(nessun oggetto)
+Posta in arrivo
+
+Valerio Sordini
+Allegati
+11:39 (3 minuti fa)
+a me
+
+console.log("inizio esecuzione");
+let d = new Date();
+console.log(d);
+document.getElementById("saluto").innerHTML=d;
+
+let colori = [];
+
+function elabora(){
+  let numero = document.getElementById("inNumber").value;
+  let testo = document.getElementById("inText").value;
+
+  // pulisce eventuali errori precedenti
+  document.getElementById("error").innerHTML = "";
+
+  //verifica se numero inserito è valido
+  if (numero >=0 && numero <= 255) {
+    //inserisce numero nell'array
+    colori.push(numero);
+    //visualizza il numero dentro il div output
+    document.getElementById("outText").innerHTML ="Hai inserito il numero " + numero;
+    //visualizza numeri inseriti del colore scelto
+    document.getElementById("outText").innerHTML += "<br> I colori inseriti sono: " + colori;
+    console.log(colori);
+    if (colori.length==3){
+      document.getElementById("coloredText").innerHTML = testo;
+      document.getElementById("coloredText").style.color=`rgb(${colori[0]},${colori[1]},${colori[2]})`;
+    }
+  }
+  else {
+    //messaggio di errore dentro il div error
+    document.getElementById("error").innerHTML ="Il numero non è valido. Inserirne uno tra 0 e 255";
+  }
+}
+   
+function reset() {
+    colori = [];
+    document.getElementById("inNumber").value = "";
+    document.getElementById("inText").value = "";
+    document.getElementById("outText").innerHTML = "";
+    document.getElementById("outText").style.color = "";
+    document.getElementById("coloredText").innerHTML = "";
+    document.getElementById("coloredText").style.color = "";
+    document.getElementById("error").innerHTML = "";
+}
+
+ Un allegato
+  •  Scansionato da Gmail
 <!DOCTYPE html>
-<html>
-<head>
-   <meta charset="utf-8">
-   <title>Coding&Color</title>
-   <link href="styles.css" rel="stylesheet" type="text/css" />
-</head>
-<body>
-<div id="header">
-   <h1 id="saluto">Oggi e un bell giorno</h1>
-</div>
-<div id="title">
-</div>
-<div id="input">
-   <label for="inNumber">Inserisci un numero: </label>
-   <input id="inNumber" placeholder="numero">
-   <button type="button" id="btnElabora" onclick="elabora()">Elabora</button>
-   <button type="button" id="btnElabora" onclick="reset()">Cancella</button>
-</div>
-<div id="output">
-   <p id="out">Output</p>
-   <p id="error">Errori</p>
-</div>
-<script src="script.js"></script>
-</body>
+<html lang="it">
+   <head>
+       <meta charset="utf-8">
+       <title>Coding&Color - Valerio Sordini</title>
+       <link href="style.css" rel="stylesheet" type="text/css" />
+   </head>
+   <body>
+       <div id="header">
+           <h1 id="saluto">Oggi è un bel giorno!</h1>
+       </div>
+       <div id="title">
+           <h1>CODICI e COLORI</h1>
+       </div>
+       <div id="input">
+           <label for="inNumber">Inserisci un numero: </label>
+           <input id="inNumber" placeholder="inserisci un numero">
+           <br>
+           <label for="inText">Inserisci un numero: </label>
+           <input id="inText" placeholder="inserisci testo">
+           <br><br>
+           <button type="button" id="btnElabora" onclick="elabora()">Elabora</button>
+           <button type="button" id="btnCancella" onclick="reset()">Resetta</button>
+       </div>
+       <p id="outText"></p>
+       <div id="output">
+            <p>Output:</p>
+           <p id="testoColorato"></p>
+       </div>
+       <div>
+            <p>Errori:</p>
+           <p id="error"></p>
+       </div>
+       <script src="script.js"></script>
+   </body>
 </html>
+index.html
+Visualizzazione di index.html.
